@@ -4,20 +4,18 @@ import hornsData from './hornsData.json'
 
 
 class Main extends React.Component {
-  render(){
-    return(
+  render() {
+    return (
       <>
-        {hornsData.map(( item,i)=>{
-          console.log("key"+i)
-            return (
-
-                < HornedBeast
-                key={i}
-                    title={item.title}
-                    imgUrl={item.image_url}
-                    description= {item.description}
-                />
-            )
+        {hornsData.map((item, i) => {
+          return (
+            < HornedBeast
+              key={i}
+              title={item.title}
+              imgUrl={item.image_url}
+              description={item.description}
+            />
+          )
         })}
       </>
     )
