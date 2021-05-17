@@ -7,9 +7,12 @@ class Main extends React.Component {
   render(){
     return(
       <>
-        {hornsData.map(item=>{
+        {hornsData.map(( item,i)=>{
+          console.log("key"+i)
             return (
-                <HornedBeast
+
+                < HornedBeast
+                key={i}
                     title={item.title}
                     imgUrl={item.image_url}
                     description= {item.description}
