@@ -12,29 +12,30 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        data:hornsData,
+      hornsData:this.props.hornsData,
         showBeast : true,
-        selected:{},
+        dataShow:{},
+        display:false,
 
     }
   }
 
  hiddenModel =()=>{
     this.setState({
-     showBeast :false ,
+      display :false ,
    
     }) 
    }
 
-   renderSelected=(title)=>{
+   renderShow=(paramet)=>{
      let selectCard = hornsData.find(element =>{
-if (element.title === title){
-  return element
+if (element.title === paramet){
+  return element;
 }
      })
 this.setState({
-  showBeast: true,
-
+  display: true,
+dataShow:selectCard,
 })
 
    }
@@ -44,8 +45,8 @@ this.setState({
     return(
       <>
         <Header/>
-        <Main hornsData={this.state.hornsData}  renderSelected={this.renderSelected}   />
-        <SelectedBeast show={this.state.show}  hiddenModel={this.state.hiddenModel}  />
+        <Main hornsData={hornsData}  renderShow={this.renderShow}   />
+        <SelectedBeast show={this.state.display} hiddenModel = {this.hiddenModel} element = {this.state.dataShow} />
         <Footer/>
       </>
     )
