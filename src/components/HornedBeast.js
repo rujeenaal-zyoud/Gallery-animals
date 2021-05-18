@@ -1,7 +1,8 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Card from 'react-bootstrap/Card'
+import Card from 'react-bootstrap/Card';
+import hornsData from './hornsData.json';
 
 
 class HornedBeast extends React.Component {
@@ -10,6 +11,8 @@ class HornedBeast extends React.Component {
         super(props);
         this.state = {
             numberOfFav: 0,
+            data: hornsData,
+            showBeast: false,
 
         }
 
@@ -20,16 +23,38 @@ class HornedBeast extends React.Component {
             numberOfFav: this.state.numberOfFav + 1,
         })
     }
+    showModel = () => {
+        this.setState({
+            showBeast: true,
+        })
+    }
+
+    hinddleModel = () => {
+        this.setState({
+            showBeast: false,
+
+        })
+    }
+
+
+
     render() {
         return (
+
+
+
+
             <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={this.props.imgUrl} />
                 <Card.Body>
                     <Card.Title>{this.props.title}</Card.Title>
                     <Card.Text>
                         {this.state.description}
-                    😸Number of Pats: {this.state.numberOfFav}
                     </Card.Text>
+                    <Card.Text>                    😸Number of Pats: {this.state.numberOfFav}
+                    </Card.Text>
+
+
                     <Button onClick={this.incrementNumber} variant="primary">pick</Button>
                 </Card.Body>
             </Card>)
