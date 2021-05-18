@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card'
 
+
 class HornedBeast extends React.Component {
     //Create constructue with inhert with state to be as key for passing arrgument numberOfClike
     constructor(props) {
@@ -32,6 +33,7 @@ class HornedBeast extends React.Component {
                     <Button onClick={this.incrementNumber} variant="primary">pick</Button>
                 </Card.Body>
             </Card>)
+
     }
 }
 export default HornedBeast;

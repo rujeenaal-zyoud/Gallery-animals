@@ -1,5 +1,6 @@
 import React from 'react';
 import HornedBeast from './HornedBeast';
+
 import hornsData from './hornsData.json'
 
 
@@ -23,3 +24,4 @@ class Main extends React.Component {
 }
 
 export default Main;
+
