@@ -20,6 +20,7 @@ class HornedBeast extends React.Component {
             numberOfFav: this.state.numberOfFav + 1,
         })
     }
+    //this will send when click same card selected
     sendData = () =>{
         this.props.renderShow(this.props.title);
       }
