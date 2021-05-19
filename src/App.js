@@ -26,7 +26,7 @@ class App extends React.Component {
    
     }) 
    }
-
+  
    renderShow=(paramet)=>{
      let selectCard = hornsData.find(element =>{
 if (element.title === paramet){
@@ -39,13 +39,17 @@ dataShow:selectCard,
 })
 
    }
-
+  
+   renderFilterItem=(n)=>{
+    this.setState({
+      hornsData:n
+    })}
 
   render(){
     return(
       <>
         <Header/>
-        <Main hornsData={hornsData}  renderShow={this.renderShow}   />
+        <Main hornsData={hornsData}  renderShow={this.renderShow}  renderFilterItem={this.renderFilterItem}  />
         <SelectedBeast show={this.state.display} hiddenModel = {this.hiddenModel} element = {this.state.dataShow} />
         <Footer/>
       </>
