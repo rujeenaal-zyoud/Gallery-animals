@@ -8,50 +8,51 @@ import SelectedBeast from './components/SelectedBeast';
 class App extends React.Component {
 
 
- 
+
   constructor(props) {
     super(props);
     this.state = {
-      hornsData:this.props.hornsData,
-        showBeast : true,
-        dataShow:{},
-        display:false,
+      hornsDataArr: hornsData,
+      showBeast: true,
+      dataShow: {},
+      display: false,
 
     }
   }
 
- hiddenModel =()=>{
+  hiddenModel = () => {
     this.setState({
-      display :false ,
-   
-    }) 
-   }
-  
-   renderShow=(paramet)=>{
-     let selectCard = hornsData.find(element =>{
-if (element.title === paramet){
-  return element;
-}
-     })
-this.setState({
-  display: true,
-dataShow:selectCard,
-})
+      display: false,
 
-   }
-  
-   renderFilterItem=(n)=>{
+    })
+  }
+
+  renderShow = (paramet) => {
+    let selectCard = hornsData.find(element => {
+      if (element.title === paramet) {
+        return element;
+      }
+    })
     this.setState({
-      hornsData:n
-    })}
+      display: true,
+      dataShow: selectCard,
+    })
+// return paramet;
+  }
 
-  render(){
-    return(
+  renderFilterItem=(parameter)=>{
+    this.setState({
+      hornsDataArr:parameter,
+    })
+  }
+
+  render() {
+    return (
       <>
-        <Header/>
-        <Main hornsData={hornsData}  renderShow={this.renderShow}  renderFilterItem={this.renderFilterItem}  />
-        <SelectedBeast show={this.state.display} hiddenModel = {this.hiddenModel} element = {this.state.dataShow} />
-        <Footer/>
+        <Header />
+        <Main hornsDataArr={this.state.hornsDataArr}  renderShow={this.renderShow} renderFilterItem={this.renderFilterItem} />
+        <SelectedBeast show={this.state.display} hiddenModel={this.hiddenModel} element={this.state.dataShow} />
+        <Footer />
       </>
     )
   }
