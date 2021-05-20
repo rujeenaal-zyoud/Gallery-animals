@@ -32,12 +32,13 @@ class App extends React.Component {
       if (element.title === paramet) {
         return element;
       }
+      return element;
     })
     this.setState({
       display: true,
       dataShow: selectCard,
     })
-// return paramet;
+    return paramet;
   }
 
   renderFilterItem=(parameter)=>{
